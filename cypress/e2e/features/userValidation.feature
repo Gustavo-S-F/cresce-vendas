@@ -4,3 +4,4 @@ Feature: Autenticação de Usuário
     Given o usuário está logado
     When o usuário acessa a página de perfil e edita as informações
     Then o sistema salva as alterações com sucesso
+

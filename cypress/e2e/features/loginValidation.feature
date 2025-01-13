@@ -14,3 +14,4 @@ Feature: Autenticacao de Usuário
     Given o usuário está logado
     When o usuário clica em Logout
     Then o sistema encerra a sessão e redireciona para a página inicial
+

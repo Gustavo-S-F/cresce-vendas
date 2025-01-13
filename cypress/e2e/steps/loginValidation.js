@@ -1,14 +1,11 @@
 /// <reference types="Cypress" />
 
 import LoginPage from "../pages/login_page";
-import HomePage from "../pages/home_page";
 const loginPage =  new LoginPage
-const homePage = new HomePage
-
 
 Given(/^o usuário acessa a página de login$/, () => {
 	loginPage.acessSystems()
-	homePage.accessLoginPage()
+	loginPage.accessLoginPage()
 });
 
 When(/^o usuário insere credenciais válidas$/, () => {
@@ -24,7 +21,7 @@ Then(/^o sistema concede acesso à conta$/, () => {
 
 Given(/^o usuário acessa a página de login$/, () => {
 	loginPage.acessSystems()
-	homePage.accessLoginPage()
+	loginPage.accessLoginPage()
 });
 
 When(/^o usuário insere credenciais inválidas$/, () => {
@@ -40,7 +37,7 @@ Then(/^o sistema exibe uma mensagem de erro$/, () => {
 
 Given(/^o usuário está logado$/, () => {
 	loginPage.acessSystems()
- 	homePage.accessLoginPage()
+	loginPage.accessLoginPage()
 	loginPage.fillFieldsValidUser()
 });
 

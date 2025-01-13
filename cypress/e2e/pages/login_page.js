@@ -2,8 +2,10 @@
 
 import LoginElements from "../elements/login_elements"
 import MyAccountElements from "../elements/myAccount_elements"
+import HomeElements from "../elements/home_elements"
 const myAccountElements = new MyAccountElements
 const loginElements = new LoginElements
+const homeElements = new HomeElements
 const url = Cypress.config ('baseUrl')
 
 class LoginPage{
@@ -11,6 +13,11 @@ class LoginPage{
    acessSystems(){
       cy.visit(url)
    }   
+
+   accessLoginPage(){
+      cy.get(homeElements.myccountBtn).click()
+      cy.get(homeElements.logginBtn).click()
+  }
 
    fillFieldsValidUser(){
       cy.get(loginElements.emailField).type('qagustaqa@gmail.com')

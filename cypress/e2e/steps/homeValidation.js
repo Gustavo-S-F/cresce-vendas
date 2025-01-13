@@ -7,16 +7,62 @@ const homePage = new HomePage
 
 
 
+
 Given(/^o usuário acessa o site$/, () => {
 	loginPage.acessSystems()
-    homePage.accessLoginPage()
-    //loginPage.accessLoginPage()
 });
 
 When(/^o usuário navega pelo catálogo de produtos$/, () => {
-	return true;
+	homePage.navigateProducts()
 });
 
 Then(/^o sistema exibe os produtos disponíveis$/, () => {
-	return true;
+	homePage.validateProducts()
+});
+
+
+
+
+Given(/^o usuário acessa o site$/, () => {
+	loginPage.acessSystems()
+});
+
+When(/^o usuário digita um termo de busca$/, () => {
+	homePage.searchAProduct()
+});
+
+Then(/^o sistema exibe os produtos relacionados$/, () => {
+	homePage.validatesProductResearch()
+});
+
+
+
+
+
+Given(/^o usuário visualiza um produto$/, () => {
+	loginPage.acessSystems()
+});
+
+When(/^o usuário clica em Adicionar ao carrinho$/, () => {
+	homePage.addProductToCart()
+});
+
+Then(/^o sistema adiciona o produto ao carrinho$/, () => {
+	homePage.validatesProductInCart()
+});
+
+
+
+
+Given(/^o usuário tem produtos no carrinho$/, () => {
+	loginPage.acessSystems()
+	homePage.addProductToCart()
+});
+
+When(/^o usuário remove um produto$/, () => {
+	homePage.removeProductToCart()
+});
+
+Then(/^o sistema atualiza o carrinho sem o produto$/, () => {
+	homePage.validatesRemovalOfProductFromCart()
 });
