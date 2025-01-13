@@ -1,7 +1,9 @@
 /// <reference types="Cypress" />
 
 import LoginPage from "../pages/login_page";
+import HomePage from "../pages/home_page";
 const loginPage =  new LoginPage
+const homePage = new HomePage
 
 Given(/^o usuário acessa a página de login$/, () => {
 	loginPage.acessSystems()
@@ -14,7 +16,7 @@ When(/^o usuário insere credenciais válidas$/, () => {
 
 Then(/^o sistema concede acesso à conta$/, () => {
 	loginPage.validateLoggedIn()
-	cy.wait(2000)
+	homePage.simulatesHumanBehavior()
 });
 
 
@@ -30,7 +32,7 @@ When(/^o usuário insere credenciais inválidas$/, () => {
 
 Then(/^o sistema exibe uma mensagem de erro$/, () => {
 	loginPage.validateErrorLogin()
-	cy.wait(2000)
+	homePage.simulatesHumanBehavior()
 });
 
 
@@ -47,5 +49,5 @@ When(/^o usuário clica em Logout$/, () => {
 
 Then(/^o sistema encerra a sessão e redireciona para a página inicial$/, () => {
 	loginPage.validateLogout()
-	cy.wait(2000)
+	homePage.simulatesHumanBehavior()
 });

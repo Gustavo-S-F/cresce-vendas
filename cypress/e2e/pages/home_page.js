@@ -56,5 +56,24 @@ class HomePage{
       cy.get(homeElements.cart).click({force: true})
       cy.get(homeElements.cartContents).contains('Your shopping cart is empty!')
    }
+
+   enterInMp3Module(){
+      cy.get(homeElements.mp3PlayerMenu).click()
+      cy.get(homeElements.showAllMp3Btn).click()
+      cy.get(homeElements.addIpodOnCartBtn).click({ force: true });
+   }
+
+    validateIpodInCart(){
+      cy.wait(2000)
+      cy.get(homeElements.cart).click({ force: true })
+      cy.get(homeElements.productNameInCart).contains('iPod')
+      cy.get(homeElements.checkoutBtn).click()
+      cy.url().should('include', '/checkout');
+   ;}
+
+   simulatesHumanBehavior(){
+      cy.wait(2000)
+   }
+
 }
 export default HomePage

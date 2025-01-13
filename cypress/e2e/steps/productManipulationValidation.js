@@ -10,6 +10,7 @@ const homePage = new HomePage
 
 Given(/^o usuário acessa o site$/, () => {
 	loginPage.acessSystems()
+	homePage.simulatesHumanBehavior() 
 });
 
 When(/^o usuário navega pelo catálogo de produtos$/, () => {
@@ -25,6 +26,7 @@ Then(/^o sistema exibe os produtos disponíveis$/, () => {
 
 Given(/^o usuário acessa o site$/, () => {
 	loginPage.acessSystems()
+	homePage.simulatesHumanBehavior() 
 });
 
 When(/^o usuário digita um termo de busca$/, () => {
@@ -33,6 +35,7 @@ When(/^o usuário digita um termo de busca$/, () => {
 
 Then(/^o sistema exibe os produtos relacionados$/, () => {
 	homePage.validatesProductResearch()
+	homePage.simulatesHumanBehavior() 
 });
 
 
@@ -41,6 +44,7 @@ Then(/^o sistema exibe os produtos relacionados$/, () => {
 
 Given(/^o usuário visualiza um produto$/, () => {
 	loginPage.acessSystems()
+	homePage.simulatesHumanBehavior() 
 });
 
 When(/^o usuário clica em Adicionar ao carrinho$/, () => {
@@ -57,12 +61,18 @@ Then(/^o sistema adiciona o produto ao carrinho$/, () => {
 Given(/^o usuário tem produtos no carrinho$/, () => {
 	loginPage.acessSystems()
 	homePage.addProductToCart()
+	homePage.simulatesHumanBehavior() 
 });
 
 When(/^o usuário remove um produto$/, () => {
+	homePage.simulatesHumanBehavior() 
 	homePage.removeProductToCart()
 });
 
 Then(/^o sistema atualiza o carrinho sem o produto$/, () => {
+	homePage.simulatesHumanBehavior() 
 	homePage.validatesRemovalOfProductFromCart()
+	
 });
+
+
